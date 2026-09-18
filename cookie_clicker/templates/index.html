@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Long Text</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+  </head>
+  <body>
+    <script
+      src="{{ url_for('static', filename='app.js') }}"
+      async
+      defer
+    ></script>
+    <p id="status"></p>
+    <p id="error_label"></p>
+    <br />
+    <button onclick="more_cookies()">Click Me</button>
+    <button
+      onclick="upgrade_button()"
+      id="button_upgrader"
+      style="display: none"
+    >
+      Upgrade button: 10C
+    </button>
+    <button
+      onclick="upgrade_autoclick()"
+      id="autoclick_upgrader"
+      style="display: none"
+    >
+      Upgrade Autoclick: 15C
+    </button>
+
+    <br />
+  </body>
+</html>
