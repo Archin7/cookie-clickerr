@@ -15,4 +15,5 @@ button {
   border: none;
   border-bottom: 4px solid #000a77;
   border-radius: 10px;
+  font-family: "Courier New", Courier, monospace;
 }
