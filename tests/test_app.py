@@ -1,4 +1,4 @@
-from cookie_clicker/app import app
+from cookie_clicker.app import app
 
 
 def test_home():
