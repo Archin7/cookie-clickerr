@@ -3,6 +3,7 @@ if (localStorage.getItem("cookies") === null) {
   localStorage.setItem("upgrade_click", 1);
   localStorage.setItem("upgrade_autoclick", 0);
 }
+let winstatus = document.getElementById("status");
 
 let cookies = Number(localStorage.getItem("cookies"));
 let click_boost = Number(localStorage.getItem("upgrade_click"));
@@ -13,12 +14,16 @@ let autoclick_price = 15;
 
 function more_cookies() {
   cookies += click_boost;
+  winstatus.innerHTML = "Cookies: " + cookies + "<br>";
 }
 
 function upgrade_button() {
   if (cookies >= click_price) {
     click_boost++;
     cookies -= click_price;
+    document.getElementById("click_label").innerHTML = click_price;
+
+    winstatus.innerHTML += "Upgrade level: " + click_boost + "<br>";
   }
 }
 
@@ -26,6 +31,9 @@ function upgrade_autoclick() {
   if (cookies >= autoclick_price) {
     autoclick++;
     cookies -= autoclick_price;
+    document.getElementById("autoclick_label").innerHTML = autoclick_price;
+
+    winstatus.innerHTML += "Autoclick level: " + autoclick + "<br>";
   }
 }
 
@@ -36,7 +44,6 @@ function save() {
 }
 
 function loop() {
-  let winstatus = document.getElementById("status");
   winstatus.innerHTML = "Cookies: " + cookies + "<br>";
   winstatus.innerHTML += "Upgrade level: " + click_boost + "<br>";
   winstatus.innerHTML += "Autoclick level: " + autoclick + "<br>";
