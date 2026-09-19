@@ -1,28 +1,38 @@
-let cookies = 0;
-let click_boost = 1;
-let autoclick = 0;
+if (localStorage.getItem("cookies") === null) {
+  localStorage.setItem("cookies", 0);
+  localStorage.setItem("upgrade_click", 1);
+  localStorage.setItem("upgrade_autoclick", 0);
+}
 
-let upgrade_click_cost = 10;
-let upgrade_autoclick_cost = 15;
+let cookies = Number(localStorage.getItem("cookies"));
+let click_boost = Number(localStorage.getItem("upgrade_click"));
+let autoclick = Number(localStorage.getItem("upgrade_autoclick"));
+
+let click_price = 10;
+let autoclick_price = 15;
 
 function more_cookies() {
   cookies += click_boost;
 }
 
 function upgrade_button() {
-  if (cookies >= upgrade_click_cost) {
+  if (cookies >= click_price) {
     click_boost++;
-    upgrade_click_cost;
-    cookies -= 10;
+    cookies -= click_price;
   }
 }
 
 function upgrade_autoclick() {
-  if (cookies >= upgrade_autoclick_cost) {
+  if (cookies >= autoclick_price) {
     autoclick++;
-    upgrade_autoclick_cost++;
-    cookies -= 15;
+    cookies -= autoclick_price;
   }
+}
+
+function save() {
+  localStorage.setItem("cookies", cookies);
+  localStorage.setItem("upgrade_click", click_boost);
+  localStorage.setItem("upgrade_autoclick", autoclick);
 }
 
 function loop() {
@@ -30,6 +40,15 @@ function loop() {
   winstatus.innerHTML = "Cookies: " + cookies + "<br>";
   winstatus.innerHTML += "Upgrade level: " + click_boost + "<br>";
   winstatus.innerHTML += "Autoclick level: " + autoclick + "<br>";
+
+  document.getElementById("button_upgrader").innerHTML =
+    "Upgrade button: " + click_price + "C";
+
+  document.getElementById("autoclick_upgrader").innerHTML =
+    "Upgrade autoclick: " + autoclick_price + "C";
+
+  click_price = Math.floor(10 * Math.pow(1.15, click_boost - 1));
+  autoclick_price = Math.floor(15 * Math.pow(1.18, autoclick));
 
   // Checks
   if (cookies >= 10) {
