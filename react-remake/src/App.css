@@ -1,0 +1,19 @@
+body {
+  background-color: #000219;
+  font-family: "Courier New", Courier, monospace;
+}
+
+p {
+  color: #a7a5e0;
+}
+
+button {
+  color: #000219;
+  background-color: #a7a5e0;
+  padding: 6px 12px;
+  margin: 10px 0 10px 0;
+  border: none;
+  border-bottom: 4px solid #000a77;
+  border-radius: 10px;
+  font-family: "Courier New", Courier, monospace;
+}

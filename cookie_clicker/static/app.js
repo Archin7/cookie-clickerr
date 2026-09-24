@@ -44,10 +44,6 @@ function save() {
 }
 
 function loop() {
-  winstatus.innerHTML = "Cookies: " + cookies + "<br>";
-  winstatus.innerHTML += "Upgrade level: " + click_boost + "<br>";
-  winstatus.innerHTML += "Autoclick level: " + autoclick + "<br>";
-
   document.getElementById("button_upgrader").innerHTML =
     "Upgrade button: " + click_price + "C";
 
